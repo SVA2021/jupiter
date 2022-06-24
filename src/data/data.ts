@@ -1,46 +1,49 @@
-const BRAND = 'Нямушка';
-const BONUS = ['мышь в подарок', ' мыши в подарок', ' мышей в подарок заказчик доволен',];
-const WEIGHT = ['0,5', '2', '5'];
-const QTY = ['10', '40', '100'];
-const TASTE = ['с фуа-гра', 'с рыбой', 'с курой'];
-const DETAILED = ['Печень утки разварная с артишоками.', 'Головы щучьи с чесноком да свежайшая сёмгушка.', 'Филе из цыплят с трюфелями в бульоне.'];
+export const CATEGORY = ['show all', 'design', 'branding', 'illustration', 'motion',] as const;
 
-type TBonus = typeof BONUS[number];
-type TWeight = typeof WEIGHT[number];
+const CONTENT = ['SOFA', 'KeyBoard', 'Work Media', 'DDDone', 'Abstract', 'HandP', 'Architect', 'Calc', 'Sport']
+export type TCategory = typeof CATEGORY[number];
 
-export type TQty = typeof QTY[number];
-export type TTaste = typeof TASTE[number];
-export type TDetailed = typeof DETAILED[number];
-export type TDescription = 'Сказочное заморское яство' | 'Котэ не одобряет?';
-
-export interface TCard {
-	brand: typeof BRAND
-	taste: TTaste
-	weight: TWeight
-	qty: TQty
-	bonus: TBonus
-	disabled: boolean
-	detailed: TDetailed
+export type TData = {
+	id: number
+	category: TCategory
+	content: string
+	imageSrc: string
 }
 
-//*********Fake data to result demonstration */
+export type TCard = TData & {
+	selected: number | null
+	handleBtnClick: React.MouseEventHandler<HTMLButtonElement>
+	handleCardClick: React.MouseEventHandler<HTMLDivElement>
+}
 
-export const FakeDataDefault: TCard[] = [];
-export const FakeDataDisabled: TCard[] = [];
+export const FAKEDATA: TData[] = [];
 
-const fillData = (array: TCard[], disabled: boolean): void => {
-	for (let i = 0; i < 3; i++) {
+const checkCategory = (id: number): TCategory => {
+	let div = id % 9;
+
+	if (div === 0 || div === 4 || div === 7) return CATEGORY[1];
+	if (div === 1 || div === 5 || div === 8) return CATEGORY[2];
+	if (div === 2) return CATEGORY[3];
+	if (div === 3 || div === 6) return CATEGORY[4];
+	return CATEGORY[0];
+}
+
+export const fillData = (array: TData[], qty: number): void => {
+	for (let i = 0; i < qty; i++) {
 		array.push({
-			brand: BRAND,
-			taste: TASTE[i],
-			weight: WEIGHT[i],
-			qty: QTY[i],
-			bonus: BONUS[i],
-			detailed: DETAILED[i],
-			disabled: disabled,
+			id:  +((Math.random() + i) * 1000000000).toFixed(0),
+			category: checkCategory(i),
+			content: CONTENT[i % 9],
+			imageSrc: `/img/Bitmap_${i % 9}.png`,
 		});
 	}
 }
 
-fillData(FakeDataDefault, false);
-fillData(FakeDataDisabled, true);
+fillData(FAKEDATA, 9);
+
+export const filterByCategory = (array: TData[], category: TCategory): TData[] => {
+	let result :TData[] = [];
+	if (category === 'show all') return array;
+	result = array.filter((item) => item.category === category);
+	return result;
+}

@@ -1,0 +1,13 @@
+//******************** Media Queries ***********************/
+
+@mixin media-md {
+	@media (min-width: #{$mq-md}) {
+		@content;
+	}
+}
+
+@mixin retina {
+	@media (-webkit-min-device-pixel-ratio: 2) {
+		@content;
+	}
+}

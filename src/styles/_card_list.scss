@@ -1,0 +1,16 @@
+.card-list__wrapper {
+	margin: 100px auto;
+	width: 100%;
+	padding-top: 36px;
+
+	@include media-lg {
+		max-width: $mq-lg;
+	}
+}
+
+.card-list {
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	flex-wrap: wrap;
+}

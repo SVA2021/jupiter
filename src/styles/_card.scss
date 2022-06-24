@@ -1,0 +1,182 @@
+.card {
+	position: relative;
+	width: 320px;
+	height: 509px;
+	margin: 25px 2vw;
+
+	@include media-lg {
+		margin: 25px 40px;
+	}
+}
+
+.card--default {
+	&:hover {
+		.card__border {
+			fill: $blue_2;
+		}
+
+		.card__weight {
+			background-color: $blue_2;
+		}
+
+		.detailed__link {
+			color: $blue_2;
+		}
+	}
+}
+
+.card--disabled {
+	.card__border {
+		fill: $gray_2;
+	}
+
+	.card__weight {
+		background-color: $gray_2;
+	}
+
+	.card__description,
+	.card__caption,
+	.card__brand,
+	.card__taste {
+		color: $gray_2;
+	}
+
+	.card__content {
+		opacity: 0.5;
+	}
+
+	.card__detailed {
+		color: $yellow;
+	}
+}
+
+.card--selected {
+	.card__border {
+		fill: $red_1;
+	}
+
+	.card__weight {
+		background-color: $red_1;
+	}
+}
+
+.card--selected__hovered {
+	.card__description {
+		color: $red_3;
+	}
+
+	.card__border {
+		fill: $red_2;
+	}
+
+	.card__weight {
+		background-color: $red_2;
+	}
+}
+
+.card__wrapper {
+	position: relative;
+	width: 320px;
+	height: 480px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.card__border {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: $blue_1;
+}
+
+.card__back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: $light;
+}
+
+.card__content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 320px;
+	height: 480px;
+	padding-top: 21px;
+	padding-left: 51px;
+	border-radius: $border-radius-default;
+	background-image: url('../img/Photo.png');
+	background-repeat: no-repeat;
+	background-position: -24px 208px;
+
+	@include retina {
+		background-image: url('../img/Photo@2x.png');
+		background-size: contain;
+	}
+}
+
+.card__description {
+	@include plaintext;
+	color: $gray_1;
+}
+
+.card__brand {
+	@include title;
+	margin-top: 5px;
+	margin-left: -3px;
+	color: $black;
+}
+
+.card__taste {
+	@include subtitle;
+	color: $black;
+}
+
+.card__caption {
+	@include caption;
+	margin-top: 15px;
+	width: 60%;
+	color: $gray_1;
+}
+
+.card__weight {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	border-radius: 50%;
+	font: normal rem(42) $font-text;
+	text-align: center;
+	color: $white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background-color: $blue_1;
+	line-height: 2.5rem;
+	.weight__unit {
+		font-size: rem(20);
+		line-height: 1em;
+	}
+}
+
+.card__detailed {
+	@include caption;
+	font-size: $font-size-details;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	color: $white;
+
+	.detailed__link {
+		color: $blue_1;
+		font-weight: 700;
+		text-decoration: underline dashed;
+		cursor: pointer;
+	}
+}

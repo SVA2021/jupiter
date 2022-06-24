@@ -1,0 +1,47 @@
+//*************COLORS **********************/
+
+$black: #000;
+$white: #fff;
+$green: #4FE24A;
+$dark: #28293E;
+$red: #EF6D58;
+$orange: #F3D1BF;
+$beige: #FDF0E9;
+$gray: #707070;
+$brown: #391400;
+$white_064: rgba(white, 0.64);
+$white_029: rgba(white, 0.29);
+$brown_064: rgba($brown, 0.64);
+$brown_shadow: #5C2000;
+$brown_shadow_32: rgba($brown_shadow, 0.32);
+$brown_shadow_8: rgba($brown_shadow, 0.08);
+
+$gray_mask: #9B9B9B;
+
+//**************MEDIA QUERIES ****************/
+
+$mq-md: 1040px;
+
+$max-container: 1600px;
+$min-container: 375px;
+
+//**************FONTS****************/
+$font-text:'Epilogue',
+sans-serif;
+
+//**FONT-SIZE FOR REM CALCULATION */
+$html-font-size: 16px;
+
+//****************FONT-VARIABLES**********/
+
+$font-logo: 700 rem(24)/rem(32) $font-text;
+$font-hero-sm: 800 rem(56)/rem(64) $font-text;
+$font-hero-lg: 800 rem(72)/rem(80) $font-text;
+$font-btn: 900 rem(14) $font-text;
+$font-base: 400 rem(16)/rem(32) $font-text;
+$font-title: 800 rem(40)/rem(48) $font-text;
+
+
+//**********border-radius
+$border-radius-default: 6px;
+$border-radius-btn: 19px;
