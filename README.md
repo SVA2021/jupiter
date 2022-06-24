@@ -1,4 +1,4 @@
-# Quality test for Funbox
+# Quality test
 
 Sofronov Vitaliy
 Front-End Developer
@@ -11,7 +11,3 @@ Details to project from [Link to task](https://docs.google.com/document/d/1YSODk
 ## My portfolio
 
 You can see check my portfolio at [here](https://sva2021.github.io/MyPortfolio/).
-
-## Comments to test
- - Font Exo2 connected from GoogleFonts, because otf file have partially support by IE 11
- - Pixel perfect checking was made OK
